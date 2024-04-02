@@ -5,6 +5,7 @@ using Contracts.ItemsInterfaces;
 using UniRx;
 using UnityEngine;
 using Utilities;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -98,8 +99,12 @@ namespace Player
         public void DealDamage(int damage)
         {
             _currentHealth.Value -= damage;
+            if (_currentHealth.Value == 0)
+            {
+                ReloadScene();
+            }
         }
-
+       
         public void Heal(int health)
         {
             _currentHealth.Value += health;
@@ -134,5 +139,11 @@ namespace Player
         {
             Debug.Log($"Thanks for adding {gold}");
         }
+        void ReloadScene()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
     }
 }
