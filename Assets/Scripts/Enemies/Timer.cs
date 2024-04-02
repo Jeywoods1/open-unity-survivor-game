@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTime;
+    public static float elapsedTime = 0;
 
     void Update()
     {
@@ -25,4 +25,5 @@ public class Timer : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }
